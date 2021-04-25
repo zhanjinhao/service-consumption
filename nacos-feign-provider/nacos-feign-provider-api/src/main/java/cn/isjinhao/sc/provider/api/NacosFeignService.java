@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author ISJINHAO
  * @Date 2021/4/18 19:22
  */
-@FeignClient(name="nacos-discovery-server")
+@FeignClient(name="nacos-feign-provider")
 public interface NacosFeignService {
 
-    @RequestMapping(value = "/provider/hello/{msg}")
+    @RequestMapping(value = "/nacosFeignService")
     String nacosFeignService();
 
 }

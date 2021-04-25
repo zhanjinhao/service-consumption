@@ -1,6 +1,7 @@
 package cn.isjinhao.sc.consumer;
 
 import cn.isjinhao.sc.provider.api.NacosDubboService;
+import cn.isjinhao.sc.provider.api.NacosFeignService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,5 +53,15 @@ public class Consumer {
         String result = nacosDubboService.nacosDubboService();
         return "consumer is called! | " + result + " | nacos dubbo";
     }
+
+    @Autowired
+    private NacosFeignService nacosFeignService;
+
+    @GetMapping(value = "/service4")
+    public String service4() {
+        String result = nacosFeignService.nacosFeignService();
+        return "consumer is called! | " + result + " | nacos feign";
+    }
+
 
 }

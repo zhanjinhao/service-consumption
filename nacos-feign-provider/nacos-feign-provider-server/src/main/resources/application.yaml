@@ -1,0 +1,11 @@
+server:
+ port: 56013
+
+spring:
+ application:
+  name: nacos-feign-provider
+ cloud:
+  nacos:
+   discovery:
+    server-addr: 188.131.246.195:8848
+    service: ${spring.application.name}
