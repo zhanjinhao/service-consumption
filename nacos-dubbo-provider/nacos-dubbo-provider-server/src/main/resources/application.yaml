@@ -1,0 +1,27 @@
+server:
+ port: 56012
+
+spring:
+ application:
+  name: nacos-dubbo-provider
+ cloud:
+  nacos:
+   discovery:
+    server-addr: 188.131.246.195:8848
+    service: ${spring.application.name}-${spring.cloud.client.ip-address}:${server.port}
+
+dubbo:
+ scan:
+  # dubbo 服务扫描基准包
+  base-packages: cn.isjinhao.sc.provider.server
+ protocol:
+  # dubbo 协议
+  name: dubbo
+  # dubbo 协议端口
+  port: 20881
+ registry:
+  address: nacos://188.131.246.195:8848
+ application:
+  qos-enable: false #dubbo运维服务是否开启
+ consumer:
+  check: false  #启动时就否检查依赖的服务
