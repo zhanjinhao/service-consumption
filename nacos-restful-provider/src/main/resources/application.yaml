@@ -7,5 +7,8 @@ spring:
  cloud:
   nacos:
    discovery:
-    server-addr: 188.131.246.195:8848
+    server-addr: localhost:8848
     service: ${spring.application.name}-${spring.cloud.client.ip-address}:${server.port}
+   config:
+    server-addr: localhost:8848
+    file-extension: properties
